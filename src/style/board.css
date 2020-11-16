@@ -1,0 +1,14 @@
+.board {
+  height: 90vh;
+  width: 45vw;
+  background-color: snow;
+}
+
+.board-header {
+  display: flex;
+  justify-content: center;
+}
+
+.board-header > .header-title {
+  margin: 1rem 0;
+}
