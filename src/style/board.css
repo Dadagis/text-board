@@ -2,6 +2,8 @@
   height: 90vh;
   width: 45vw;
   background-color: snow;
+  display: flex;
+  flex-direction: column;
 }
 
 .board-header {
@@ -11,4 +13,18 @@
 
 .board-header > .header-title {
   margin: 1rem 0;
+}
+
+.board > .board-body {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-area {
+  height: 3rem;
+  font-size: x-large;
+  padding-left: 1rem;
 }

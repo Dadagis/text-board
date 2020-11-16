@@ -9,7 +9,7 @@ export default function BoardHeader(props) {
 
   return (
     <div className="board-header" style={style}>
-      <h1 className="header-title">{headerTitle}</h1>
+      <h2 className="header-title">{headerTitle}</h2>
     </div>
   );
 }
