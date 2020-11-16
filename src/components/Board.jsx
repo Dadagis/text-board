@@ -5,7 +5,6 @@ import TextArea from "./common/TextArea";
 
 export default function Board(props) {
   const { headerTitle, backgroundColor, textAreaPlaceholder } = props;
-  console.log(headerTitle);
 
   return (
     <div className="board">
