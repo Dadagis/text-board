@@ -4,7 +4,7 @@ export default function TextArea(props) {
   const { placeholder } = props;
 
   return (
-    <div>
+    <div className="draggable">
       <input className="text-area" type="text" placeholder={placeholder} />
     </div>
   );
