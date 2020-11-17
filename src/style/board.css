@@ -33,4 +33,29 @@
 .draggable {
   touch-action: none;
   user-select: none;
+  position: relative;
+}
+
+.draggable > .dot-right {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  background-color: #abdae1;
+  border-radius: 50px;
+  right: -0.5rem;
+  top: 1.3rem;
+}
+
+.draggable > .dot-left {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  background-color: #f6658e;
+  border-radius: 50px;
+  left: -0.5rem;
+  top: 1.3rem;
+}
+
+.hidden {
+  display: none;
 }
