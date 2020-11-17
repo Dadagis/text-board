@@ -7,8 +7,13 @@
   place-items: center;
   height: 100vh;
   background-color: silver;
+  position: relative;
 }
 
 .App-body {
   display: flex;
+}
+
+.svg-arrow {
+  position: absolute;
 }

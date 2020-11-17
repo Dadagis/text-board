@@ -32,6 +32,16 @@ export default function TextArea(props) {
         onMouseOut={onMouseOut}
       />
       <div className={attribute}></div>
+      <svg className="svg-arrow" style={{ width: 100, height: 100 }}>
+        <line
+          x1="20"
+          y1="100"
+          x2="100"
+          y2="20"
+          stroke="black"
+          strokeWidth="2"
+        ></line>
+      </svg>
     </div>
   );
 }
