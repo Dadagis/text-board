@@ -59,6 +59,16 @@ function App() {
           textAreaPlaceholder="Tâche"
         />
       </div>
+      <svg className="svg-arrow">
+        <line
+          x1="532"
+          y1="223"
+          x2="908"
+          y2="223"
+          stroke="black"
+          strokeWidth="2"
+        ></line>
+      </svg>
     </div>
   );
 }
