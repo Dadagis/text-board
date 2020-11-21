@@ -14,6 +14,8 @@ function App() {
     right3: { x: 0, y: 0 },
   };
 
+  let pair = [];
+
   useEffect(() => {
     const position = { x: 0, y: 0 };
 
@@ -27,8 +29,8 @@ function App() {
           position.y += event.dy;
 
           event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
-          translateValues[event.target.dataset.type].x = position.x;
-          translateValues[event.target.dataset.type].y = position.y;
+          translateValues[event.target.dataset.type].x += position.x;
+          translateValues[event.target.dataset.type].y += position.y;
         },
         end() {
           position.x = 0;
@@ -50,11 +52,7 @@ function App() {
   // });
 
   const handleClick = ({ target: element }) => {
-    if (
-      element.parentNode.childNodes[1].className.includes("dot-right") ||
-      element.parentNode.childNodes[1].className.includes("dot-left")
-    ) {
-      console.log(element.parentNode.dataset);
+    if (element.parentNode.childNodes[1].className.includes("dot-right")) {
       let value1 = element.parentNode.childNodes[1].getBoundingClientRect().x;
       let value2 =
         element.parentNode.childNodes[1].getBoundingClientRect().width / 2;
@@ -67,7 +65,51 @@ function App() {
       value3 = window.pageYOffset;
       // console.log(value1 + value2 + value3);
       const yValue = value1 + value2 + value3;
+      translateValues[element.parentNode.dataset.type].x = xValue;
+      translateValues[element.parentNode.dataset.type].y = yValue;
+
+      if (pair.length > 0) {
+        pair[0].includes("left") ? (pair = []) : (pair = pair);
+        pair.push(element.parentNode.dataset.type);
+      } else {
+        pair.push(element.parentNode.dataset.type);
+      }
+      if (pair.length === 2) {
+        drawSvg(pair, translateValues);
+      }
+    } else if (
+      element.parentNode.childNodes[1].className.includes("dot-left")
+    ) {
+      let value1 = element.parentNode.childNodes[1].getBoundingClientRect().x;
+      let value2 =
+        element.parentNode.childNodes[1].getBoundingClientRect().width / 2;
+      let value3 = window.pageXOffset;
+      // console.log(value1 + value2 + value3);
+      const xValue = value1 + value2 + value3;
+      value1 = element.parentNode.childNodes[1].getBoundingClientRect().y;
+      value2 =
+        element.parentNode.childNodes[1].getBoundingClientRect().height / 2;
+      value3 = window.pageYOffset;
+      // console.log(value1 + value2 + value3);
+      const yValue = value1 + value2 + value3;
+      translateValues[element.parentNode.dataset.type].x = xValue;
+      translateValues[element.parentNode.dataset.type].y = yValue;
+
+      if (pair.length > 0) {
+        pair[0].includes("right") ? (pair = []) : (pair = pair);
+        pair.push(element.parentNode.dataset.type);
+      } else {
+        pair.push(element.parentNode.dataset.type);
+      }
+      if (pair.length === 2) {
+        drawSvg(pair, translateValues);
+      }
     }
+  };
+
+  const drawSvg = (pair, translateValues) => {
+    console.log("pair", pair);
+    console.log("translateValues", translateValues);
   };
 
   return (
