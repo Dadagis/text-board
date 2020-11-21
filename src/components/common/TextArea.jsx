@@ -25,8 +25,11 @@ export default function TextArea(props) {
   return (
     <div
       className="draggable"
-      datatype={placeholder}
-      dataNumber={relativeNumber}
+      data-type={
+        placeholder === "Employé"
+          ? "left" + relativeNumber
+          : "right" + relativeNumber
+      }
     >
       <input
         className="text-area"
