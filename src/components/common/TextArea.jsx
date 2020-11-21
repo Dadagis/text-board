@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextArea(props) {
-  const { placeholder } = props;
+  const { placeholder, relativeNumber } = props;
 
   // Default value for state
   const defaultSettings =
@@ -23,7 +23,11 @@ export default function TextArea(props) {
   };
 
   return (
-    <div className="draggable">
+    <div
+      className="draggable"
+      datatype={placeholder}
+      dataNumber={relativeNumber}
+    >
       <input
         className="text-area"
         type="text"

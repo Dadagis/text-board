@@ -13,9 +13,9 @@ export default function Board(props) {
         backgroundColor={backgroundColor}
       />
       <div className="board-body">
-        <TextArea placeholder={textAreaPlaceholder} />
-        <TextArea placeholder={textAreaPlaceholder} />
-        <TextArea placeholder={textAreaPlaceholder} />
+        <TextArea relativeNumber={1} placeholder={textAreaPlaceholder} />
+        <TextArea relativeNumber={2} placeholder={textAreaPlaceholder} />
+        <TextArea relativeNumber={3} placeholder={textAreaPlaceholder} />
       </div>
     </div>
   );
