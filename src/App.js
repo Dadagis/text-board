@@ -14,6 +14,15 @@ function App() {
     right3: { x: 0, y: 0 },
   };
 
+  let dragMemory = {
+    left1: { x: 0, y: 0 },
+    left2: { x: 0, y: 0 },
+    left3: { x: 0, y: 0 },
+    right1: { x: 0, y: 0 },
+    right2: { x: 0, y: 0 },
+    right3: { x: 0, y: 0 },
+  };
+
   let pair = [];
 
   useEffect(() => {
@@ -23,6 +32,8 @@ function App() {
       listeners: {
         start(event) {
           console.log(event.type, event.target);
+          position.x = dragMemory[event.target.dataset.type].x;
+          position.y = dragMemory[event.target.dataset.type].y;
         },
         move(event) {
           position.x += event.dx;
@@ -42,6 +53,8 @@ function App() {
 
           translateValues[event.target.dataset.type].x = xValue;
           translateValues[event.target.dataset.type].y = yValue;
+          dragMemory[event.target.dataset.type].x += event.dx;
+          dragMemory[event.target.dataset.type].y += event.dy;
 
           updateSvg(event, translateValues);
         },
