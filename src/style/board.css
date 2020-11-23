@@ -37,6 +37,10 @@
   z-index: 10;
 }
 
+.draggable:hover {
+  z-index: 20;
+}
+
 .draggable > .dot-right {
   width: 1rem;
   height: 1rem;
